@@ -17,7 +17,7 @@ module RunRTF
           @rtf_base_name = File.basename(@rtf).split(".").first
           @inline = inline
           @img_format = img_format
-          @img_dir = "#{Dir.pwd}/app/assets/images/rtf_images/"
+          @img_dir = "#{Dir.pwd}/app/assets/images/rtf_images"
           generate_html
         end
 
@@ -82,9 +82,7 @@ module RunRTF
 
             end
           rescue => e
-            # revert changes
-            $stdout.puts "Something went wrong while converting the embedded images"
-            $stdout.puts "Exception: #{e}"
+            $stdout.puts "Something went wrong while converting the embedded images:\n#{e}"
           end
         end
 
