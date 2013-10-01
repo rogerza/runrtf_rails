@@ -66,8 +66,8 @@ module RunRTF
               img['src'] = "/assets/rtf_images/#{@rtf_base_name}/#{img_root_name}.#{@img_format}"
 
               # Resize to PIC_WIDTH and proportional height
-              ratio = i.width / PIC_WIDTH
-              new_height = i.height / ratio
+              ratio = i.width / i.height.to_f
+              new_height = PIC_WIDTH / ratio
               i.resize "#{PIC_WIDTH}X#{new_height}!"
 
               # Make image directory
